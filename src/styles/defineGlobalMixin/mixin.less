@@ -1,0 +1,25 @@
+// 全局自定义滚动条样式
+.global-scrollbar-style() {
+  &::-webkit-scrollbar {
+    width: unit(@sizeScrollbar, px);
+    height: unit(@sizeScrollbar, px);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: @colorScrollbar;
+    border-radius: 15px;
+    transition: 0.3s background-color;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: @colorScrollbarHover;
+  }
+
+  &::-webkit-scrollbar-thumb:active {
+    background-color: @colorScrollbarHover;
+  }
+
+  &::-webkit-scrollbar-track {
+    opacity: 0;
+  }
+}

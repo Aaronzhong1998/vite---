@@ -1,0 +1,42 @@
+.ant-table-pagination.ant-pagination {
+  display: flex;
+  width: 100%;
+  padding-left: 1rem;
+}
+
+// 左右布局的风格
+.ant-pagination.flex-between {
+  display: flex;
+
+  .ant-pagination-item {
+    &:nth-last-child(2) a {
+      max-width: none;
+      text-overflow: clip;
+    }
+  }
+
+  &.mini {
+    .ant-pagination-item.ant-pagination-item-active {
+      min-width: auto;
+    }
+
+    .ant-pagination-item:not(.ant-pagination-item-active) {
+      a {
+        // max-width: 2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .ant-pagination-total-text {
+    margin-right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ant-pagination-prev {
+    margin-left: auto;
+  }
+}

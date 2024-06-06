@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-essential",
+    "plugin:prettier/recommended",
+    "@vue/typescript/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["src/**/*.vue"],
+      // 关闭组件名需要多个单词组成的规则
+      "rules": { "vue/multi-word-component-names": "off" }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    // 解决ESLint和Prettier的switch/case缩进冲突
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "no-unused-vars": "off",
+    // vite打包时自动去除console和debugger,所以这里直接关掉检查
+    "no-console": "off",
+    "no-debugger": "off",
+    // 允许catch空着
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+  "plugins": ["html", "vue"]
+}

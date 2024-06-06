@@ -1,0 +1,299 @@
+html {
+  font-family: @fontFamily;
+  font-size: unit(@fontSizeLG, px);
+  color: @colorTextBase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 文本颜色 */
+.text-primary {
+  color: @colorPrimary;
+}
+
+.text-title {
+  color: @colorText;
+}
+
+.text-secondary {
+  color: @colorTextSecondary;
+}
+
+.text-tertiary {
+  color: @colorTextTertiary;
+}
+
+.text-disabled {
+  color: @colorTextQuaternary;
+}
+
+.text-danger,
+.text-error {
+  color: @colorErrorText;
+}
+
+.text-success {
+  color: @colorSuccessText;
+}
+
+.text-warning {
+  color: @colorWarningText;
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.font-size-lg {
+  font-size: unit(@fontSizeLG, px);
+}
+
+.font-size-sm {
+  font-size: unit(@fontSizeSM, px);
+}
+
+.icon-primary {
+  padding-right: 0.25rem;
+  color: @colorPrimary;
+}
+
+.icon-success {
+  padding-right: 0.25rem;
+  color: @colorSuccessText;
+}
+
+.icon-error {
+  padding-right: 0.25rem;
+  color: @colorErrorText;
+}
+
+.icon-warning {
+  padding-right: 0.25rem;
+  color: @colorWarningText;
+}
+
+.global-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.global-flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.global-flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.global-flex-start {
+  display: flex;
+  // align-items: center;
+  justify-content: flex-start;
+}
+
+// 单行文本换行
+.global-ellipsis-oneline {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 鼠标悬浮
+.global-with-hand {
+  cursor: pointer;
+}
+
+// 鼠标悬浮变色
+.global-color-with-hand {
+  cursor: pointer;
+
+  &:hover {
+    color: @colorPrimary;
+  }
+}
+
+.global-not-allowed {
+  cursor: not-allowed;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.global-table-nodata {
+  table {
+    height: 100%;
+  }
+
+  tr > td {
+    border: none;
+  }
+}
+
+// 通用冒号
+.global-form-item-label::after {
+  position: relative;
+  top: -0.5px;
+  margin: 0 8px 0 2px;
+  content: ':';
+}
+
+// 文本域字数显示
+.global-textarea-count {
+  position: absolute;
+  width: 100%;
+  color: @colorTextTertiary;
+  text-align: right;
+  user-select: none;
+}
+
+// 禁止点击
+.global-unclickable {
+  color: @colorPrimaryDisabled !important;
+  cursor: not-allowed;
+}
+
+// 深色模式浏览器自动填充样式调整
+.password-background-style() {
+  background-color: transparent;
+
+  &:-webkit-autofill {
+    -webkit-text-fill-color: @colorText !important;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: 0 0 0 10000px @colorBgBase inset !important;
+    transition: background-color 999999s ease-in-out 0s;
+
+    &:focus {
+      box-shadow: 0 0 0 10000px @colorBgBase inset !important;
+    }
+  }
+}
+
+.global-input-password-background {
+  .password-background-style();
+
+  input {
+    .password-background-style();
+  }
+}
+
+.global-text-nowrap {
+  white-space: nowrap;
+}
+
+.global-mt-xs {
+  margin-top: 0.5rem;
+}
+
+.global-mb-xs {
+  margin-bottom: 0.5rem;
+}
+
+@keyframes ant-line {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+// 气泡自定义滚动条样式
+.global-popover-scrollbar {
+  display: block;
+  max-width: 25rem;
+  max-height: 25rem;
+  overflow: auto;
+
+  .global-scrollbar-style();
+}
+
+// 错误提示抖动效果
+.shake {
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+      transform: translate3d(+2px, 0, 0);
+    }
+
+    30%,
+    70% {
+      transform: translate3d(-2px, 0, 0);
+    }
+
+    40%,
+    60% {
+      transform: translate3d(+2px, 0, 0);
+    }
+
+    50% {
+      transform: translate3d(-2px, 0, 0);
+    }
+  }
+
+  animation: shake 800ms ease-in-out;
+}
+// 表格自定义滚动条样式
+.global-table-scrollbar {
+  .ant-table-body {
+    .global-scrollbar-style();
+
+    &::-webkit-scrollbar-corner {
+      background-color: inherit;
+    }
+  }
+
+  // 滚动条样式修改后表格偏移量修改
+  .ant-table-header,
+  .ant-table-hide-scrollbar {
+    &::-webkit-scrollbar {
+      width: 7.25px;
+      min-width: auto;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background-color: inherit;
+    }
+  }
+
+  .ant-table-scroll {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      width: 1.25rem;
+      height: 3.4375rem;
+      content: '';
+      background: @colorBgLayout;
+      border-bottom: 1px solid @colorBorderSecondary;
+    }
+  }
+}

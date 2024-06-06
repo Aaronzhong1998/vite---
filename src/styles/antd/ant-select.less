@@ -1,0 +1,16 @@
+.rc-virtual-list-scrollbar-thumb {
+  width: unit(@sizeScrollbar, px) !important;
+  background: @colorScrollbar !important;
+  transition: 0.3s background-color;
+
+  &:hover,
+  &:active {
+    cursor: default !important;
+    background-color: @colorScrollbarHover !important;
+  }
+}
+
+// 加载动画居中
+.ant-select-dropdown .ant-select-item-empty {
+  text-align: center;
+}

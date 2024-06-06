@@ -1,0 +1,41 @@
+.ant-table-body {
+  .global-scrollbar-style();
+
+  &::-webkit-scrollbar-corner {
+    background-color: inherit;
+  }
+}
+
+// 滚动条样式修改后表格偏移量修改
+.ant-table-header,
+.ant-table-hide-scrollbar {
+  &::-webkit-scrollbar {
+    width: unit(@sizeScrollbar, px);
+    min-width: auto;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: inherit;
+  }
+}
+
+.ant-table-scroll {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 1.25rem;
+    height: 3.4375rem;
+    content: '';
+    background: @colorBgSpotlight;
+    border-bottom: 1px solid @colorBorderSecondary;
+  }
+}
+
+// 解决表格加滚动后右边凸出部分问题（最右列固定则不生效）
+.ant-table:not(.ant-table-fixed-column) .ant-table-body {
+  overflow: auto !important;
+}
